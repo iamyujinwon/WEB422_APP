@@ -1,6 +1,6 @@
-<h1>U2</h1>
+<h1>{{artist.name}}</h1>
 <p>
-  Full discography for U2 <br/>
+  Full discography for {{artist.name}} <br/>
   Click the <strong>album cover</strong> for more information.
 </p>
 <br/>
@@ -17,13 +17,13 @@
   <div fxFlex [style.margin]="'20px'" *ngFor="let album of albums; let i = index">
     <mat-card [style.min-width]="'200px'">
         <mat-card-header>
-            <mat-card-title>{{albums[i].name}}</mat-card-title>
+            <mat-card-title>{{album.name}}</mat-card-title>
             <mat-card-subtitle>Album Title</mat-card-subtitle>
         </mat-card-header>
 
-        <img routerLink="/album" routerLinkActive="active" mat-card-image class="album-cover" [src]="albums[i].images[0].url" alt="album art">
-        <strong>Release Date: </strong>{{albums[i].release_date | date:'shortDate'}}<br />
-        <strong>Tracks: </strong>{{albums[i].total_tracks}}
+        <img routerLink="/album/{{album.id}}" routerLinkActive="active" mat-card-image class="album-cover" [src]="albums[i].images[0].url" alt="album art">
+        <strong>Release Date: </strong>{{album.release_date | date:'shortDate'}}<br />
+        <strong>Tracks: </strong>{{album.total_tracks}}
     </mat-card>
   </div>
   <!-- -->

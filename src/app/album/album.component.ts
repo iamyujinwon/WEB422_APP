@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import albumData from '../data/SearchResultsAlbum.json';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute } from '@angular/router';
+import { MusicDataService } from '../music-data.service';
 
 @Component({
   selector: 'app-album',
@@ -8,12 +10,24 @@ import albumData from '../data/SearchResultsAlbum.json';
 })
 export class AlbumComponent implements OnInit {
 
-  album:any;
+  id: string = "";
+  album: any;
 
-  constructor() { }
+  constructor(private activatedRoute: ActivatedRoute, private musicDataService: MusicDataService, private matSnackBar: MatSnackBar) { }
 
   ngOnInit(): void {
-    this.album = albumData
+    this.activatedRoute.params.subscribe(params=>{
+      this.id = params['id'];
+
+      this.musicDataService.getAlbumById(this.id).subscribe(data=>{
+        this.album = data;
+      });
+    })
   }
 
+  addToFavourites(trackID: string): void {
+    if(this.musicDataService.addToFavourites(trackID)) {
+      this.matSnackBar.open("Adding to Favourites...", "Done", { duration: 1500 });
+    }
+  }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import albumData from '../data/SearchResultsAlbums.json';
-import artistData from '../data/SearchResultsArtist.json';
+import { MusicDataService } from '../music-data.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-artist-discography',
@@ -9,17 +9,24 @@ import artistData from '../data/SearchResultsArtist.json';
 })
 export class ArtistDiscographyComponent implements OnInit {
 
+  id: string = "";
+  artist:any;
   albums:any;
 
-  artist:any;
-
-  constructor() { }
+  constructor(private activatedRoute: ActivatedRoute, private musicDataService: MusicDataService) { }
 
   ngOnInit(): void {
-    this.albums = albumData.items.filter((curValue, index, self) => self.findIndex(t => t.name.toUpperCase() ===
-    curValue.name.toUpperCase()) === index);
 
-    this.artist = artistData;
+    this.activatedRoute.params.subscribe(params=>{
+      this.id = params['id'];
+
+      this.musicDataService.getArtistById(this.id).subscribe(data=>{
+        this.artist = data;
+      });
+
+      this.musicDataService.getAlbumsByArtistId(this.id).subscribe(data=>{
+        this.albums = data.items.filter((curValue:any, index:any, self:any) => self.findIndex((t:any) => t.name.toUpperCase() === curValue.name.toUpperCase()) === index);
+      })
+    })
   }
-
 }
