@@ -25,6 +25,7 @@ export class RegisterComponent implements OnInit {
       this.loading = true;
       this.authService.register(this.registerUser).subscribe(
         (success) => {
+          console.log("success!")
           this.success = true;
           this.warning = "";
           this.loading = false;
@@ -33,6 +34,7 @@ export class RegisterComponent implements OnInit {
           this.success = false;
           this.warning = err.error.message;
           this.loading = false;
+          console.log(this.warning)
         }
       )
     }

@@ -40,13 +40,13 @@ var strategy = new JwtStrategy(jwtOptions, function (jwt_payload, next) {
 passport.use(strategy);
 
 //POST /api/user/register
-app.post("/api/user/register", (req,res)=>{
-    userService.registerUser(req.body).then(()=>{
-        res.json({message: "User successfully registered"});
-    }).catch(err=>{
-        res.status(422).json({message: err});
-    });
-});
+// app.post("/api/user/register", (req,res)=>{
+//     userService.registerUser(req.body).then(()=>{
+//         res.json({message: "User successfully registered"});
+//     }).catch(err=>{
+//         res.status(422).json({message: err});
+//     });
+// });
 
 //POST /api/user/login
 app.post("/api/user/login", (req,res)=>{
