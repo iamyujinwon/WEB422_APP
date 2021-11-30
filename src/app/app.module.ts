@@ -27,6 +27,7 @@ import { AlbumComponent } from './album/album.component';
 import { ArtistDiscographyComponent } from './artist-discography/artist-discography.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { FavouritesComponent } from './favourites/favourites.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { FavouritesComponent } from './favourites/favourites.component';
     AlbumComponent,
     ArtistDiscographyComponent,
     SearchResultComponent,
-    FavouritesComponent
+    FavouritesComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
