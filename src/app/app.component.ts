@@ -1,10 +1,14 @@
 /*********************************************************************************
-* WEB422 – Assignment 05
+* WEB422 – Assignment 06
 * I declare that this assignment is my own work in accordance with Seneca Academic Policy. No part of this
 * assignment has been copied manually or electronically from any other source (including web sites) or
 * distributed to other students.
 *
-* Name: Yujin Won  Student ID: 153565197  Date: 2021-11-18
+* Name: Yujin Won  Student ID: 153565197  Date: 2021-12-02
+*
+* Angular App (Deployed) Link: https://jolly-perlman-a0759c.netlify.app
+*
+* User API (Heroku) Link: https://obscure-bastion-86400.herokuapp.com/
 *
 ********************************************************************************/
 
