@@ -2,7 +2,7 @@
   <mat-card-content>
     <form #f="ngForm" (ngSubmit)="onSubmit(f)">
       <h2>Register</h2>
-      <mat-error *ngIf="warning"> Optional Warning</mat-error><br />
+      <mat-error *ngIf="warning"> {{warning}} </mat-error><br />
       <mat-form-field class="full-width-input">
         <input matInput placeholder="User Name" name="username" [(ngModel)]="registerUser.userName" required autofocus>
         <mat-error>Please provide a valid user name</mat-error>
